@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_071633) do
+ActiveRecord::Schema.define(version: 2020_09_06_075207) do
 
   create_table "owners", force: :cascade do |t|
     t.string "first_name", limit: 50
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2020_09_06_071633) do
     t.string "telephone", limit: 14
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address_1", limit: 255
+    t.string "address_2", limit: 255
+    t.string "town", limit: 50
+    t.string "postcode", limit: 8
   end
 
 end
