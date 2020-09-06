@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_070338) do
+ActiveRecord::Schema.define(version: 2020_09_06_071633) do
 
   create_table "owners", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "telephone"
+    t.string "first_name", limit: 50
+    t.string "last_name", limit: 50
+    t.string "telephone", limit: 14
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
