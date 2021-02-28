@@ -20,4 +20,8 @@ class Owner < ApplicationRecord
       return "Yes we have #{number} bananas"
     end
 
+    def email_exists(email)
+      return Owner.where(:email => email).count >= 1
+    end
+
 end
