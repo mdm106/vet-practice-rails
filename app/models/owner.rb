@@ -12,4 +12,12 @@ class Owner < ApplicationRecord
       "#{self.telephone[0..3]} #{self.telephone[4..]}"
     end
 
+    def haveWeBananas(number)
+      if(number == 0)
+        return "No we have no bananas"
+      end
+
+      return "Yes we have #{number} bananas"
+    end
+
 end
