@@ -11,8 +11,7 @@ require 'faker'
 # generate 20 owners
 (2..21).each do |id|
     Owner.create!(
-# each user is assigned an id from 1-20
-        id: id, 
+# each user is assigned an id from 1-20 
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         telephone: Faker::PhoneNumber.phone_number,
