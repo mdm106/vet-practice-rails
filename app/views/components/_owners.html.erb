@@ -1,8 +1,12 @@
-<ul>
-    The owners are:
-    <% @owners.each do |owner| %>
-    <li>
-        <p><%= owner.full_name %></p>
-    </li>
-    <% end %>
-</ul>
+<% if @owners.count > 0 %>
+    <ul>
+        The owners are:
+        <% @owners.each do |owner| %>
+        <li>
+            <p><%= owner.full_name %></p>
+        </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p>No owners found</p>
+<% end %>
