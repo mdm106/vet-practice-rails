@@ -8,4 +8,21 @@ class OwnersController < ApplicationController
         @owner = Owner.find(params[:id]) 
     end
 
+    def new
+      @owner = Owner.new
+    end
+
+    def create
+      @owner = Owner.new(owner_params)
+      if @owner.save
+        redirect_to @owner
+      else
+        render 'new'
+      end
+    end
+  
+    def owner_params
+      params.require(:owner).permit(:first_name, :last_name, :telephone, :email, :address_1, :address_2, :town, :postcode)
+    end
+
 end

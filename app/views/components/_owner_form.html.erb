@@ -1,0 +1,41 @@
+<div class="container">
+    <%= form_with model: @owner do |form| %>
+        <div>
+            <%= form.label :first_name, "First name:" %>
+            <%= form.text_field :first_name, required: true %>
+        </div>
+
+        <div>
+            <%= form.label :last_name, "Last name:" %>
+            <%= form.text_field :last_name, required: true %>
+        </div>
+
+        <div>
+            <%= form.label :telephone, "Telephone:" %>
+            <%= form.text_field :telephone, required: true %>
+        </div>
+
+        <div>
+            <%= form.label :address_1, "Address line 1:" %>
+            <%= form.text_field :address_1, required: true %>
+        </div>
+
+        <div>
+            <%= form.label :address_2, "Address line 2:" %>
+            <%= form.text_field :address_2 %>
+        </div>
+
+        <div>
+            <%= form.label :town, "Town:" %>
+            <%= form.text_field :town, required: true %>
+        </div>
+
+        <div>
+            <%= form.label :postcode, "Postcode:" %>
+            <%= form.text_field :postcode, required: true %>
+        </div>
+
+    <%= form.submit "Submit" %>
+</div>
+
+<% end %>

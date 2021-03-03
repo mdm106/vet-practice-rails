@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :owners, only: [:index, :show]
+  resources :owners, only: [:index, :show, :new, :create]
 
 end
