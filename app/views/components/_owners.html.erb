@@ -6,6 +6,7 @@
             <p><%= owner.full_name %></p>
         </li>
         <% end %>
+        <%= will_paginate @owners %>
     </ul>
 <% else %>
     <p>No owners found</p>
