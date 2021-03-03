@@ -18,7 +18,21 @@ class OwnersController < ApplicationController
         @owner.save
         redirect_to owner_path(@owner)
       else
-        render 'new'
+        render :new
+      end
+    end
+
+    def edit
+      @owner = Owner.find(params[:id])
+    end
+
+    def update
+      @owner = Owner.find(params[:id])
+      if @owner.valid?
+        @owner.update(owner_params)
+        redirect_to @owner
+      else
+        render :edit
       end
     end
   
