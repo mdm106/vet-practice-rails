@@ -35,6 +35,15 @@ class OwnersController < ApplicationController
         render :edit
       end
     end
+
+    def search  
+      if params[:search].blank?  
+        redirect_to(root_path, alert: "Empty field!") and return  
+      else  
+        @parameter = params[:search].downcase  
+        @results = Owner.all.where("lower(first_name) LIKE :search", search: @parameter)
+      end  
+    end
   
     def owner_params
       params.require(:owner).permit(:first_name, :last_name, :telephone, :email, :address_1, :address_2, :town, :postcode)

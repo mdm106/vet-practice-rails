@@ -1,0 +1,13 @@
+<h3>Search Result</h3>  
+
+<% if @results.count > 0 %>
+    <ul>
+        <% @results.each do |owner| %>
+        <li>
+            <p><%= owner.full_name %></p>
+        </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p>No owners found</p>
+<% end %>

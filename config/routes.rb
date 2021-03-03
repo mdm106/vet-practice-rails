@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :owners
 
+  get '/search' => 'owners#search', :as => 'search_page'
+  
 end
