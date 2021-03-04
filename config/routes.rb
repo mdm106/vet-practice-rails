@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :owners
 
   get '/search' => 'owners#search', :as => 'search_page'
+
+  resources :users
+
+  get '/owners/confirmation' => 'owners#confirmation'
   
 end
