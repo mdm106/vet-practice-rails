@@ -4,11 +4,11 @@
       <%= msg %>
      </div>
   <% end %>
-   <%= form_tag '/login' do %>
-   <%= label_tag :email %>
-   <%= text_field_tag :email %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
+   <%= form_with(model: @session, local: true) do |form| %>
+   <%= form.label :email %> 
+   <%= form.text_field :email %> 
+   <%= form.label :password %>
+   <%= form.password_field :password %>
    <%= submit_tag "Login"%>
 <%end%>
 
