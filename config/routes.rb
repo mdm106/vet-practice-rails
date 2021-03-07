@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/owners/confirmation' => 'owners#confirmation'
+  get '/users/confirmation' => 'users#confirmation'
   
 end
