@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       if @user.valid?
         @user.save
         session[:user_id] = @user.id
-        redirect_to @user
+        render :confirmation
       else
         render :new
       end
@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
         if @user.valid?
             @user.update(user_params)
-            redirect_to @user
+            render :confirmation
         else
             render :edit
         end
     end
 
     def show
-
+        @user = User.find(params[:id]) 
     end
 
     def destroy
