@@ -34,9 +34,9 @@
       </li>
       <li>
         <% if logged_in? %>
-          <%= link_to "Log out", '/logout', method: :delete %>
+          <%= link_to "Log out", logout_path, method: :delete %>
         <% else %>
-          <%= link_to "Log in", '/login' %>
+          <%= link_to "Log in", login_path %>
         <% end %>
       </li>
     </ul> 
