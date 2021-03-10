@@ -13,6 +13,10 @@ class WelcomeController < ApplicationController
         else
             @greeting="Good Night";
         end
+
+        if logged_in?
+            @greeting = @greeting + ", " + current_user.name
+        end
         
     end
 
