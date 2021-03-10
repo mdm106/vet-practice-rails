@@ -8,7 +8,7 @@ class Owner < ApplicationRecord
     end
 
     def full_address
-      "#{self.address_1}, #{self.address_2}, #{self.town}, #{self.postcode}"
+      "#{self.address_1}, #{self.address_2 != "" ? self.address_2 + ',' : '' } #{self.town}, #{self.postcode}"
     end
 
     def format_telephone
