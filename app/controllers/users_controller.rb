@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    before_action :require_logged_in_user, only: [:edit, :update]
 
     def index
         @users = User.all
@@ -22,6 +23,9 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find(params[:id])
+        if current_user != @user
+            flash[:error] = "You cannot edit another user's profile"
+        end
     end
   
     def update
@@ -51,4 +55,10 @@ class UsersController < ApplicationController
         params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation)
     end
 
+    def require_logged_in_user
+        if !logged_in?
+          redirect_to('/login')
+          flash.alert = "You must login to edit a user"
+        end
+    end
 end

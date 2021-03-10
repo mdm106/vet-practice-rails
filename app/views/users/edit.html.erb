@@ -1,1 +1,9 @@
-<%= render 'form' %>
+<% if current_user == @user %>
+    <%= render 'form' %>
+<% else %>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+<% end %>
