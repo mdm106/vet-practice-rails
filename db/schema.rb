@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_145817) do
+ActiveRecord::Schema.define(version: 2021_03_10_164939) do
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2021_03_10_145817) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_id"], name: "index_animals_on_owner_id"
+  end
+
+  create_table "animals_treatments", id: false, force: :cascade do |t|
+    t.integer "animal_id", null: false
+    t.integer "treatment_id", null: false
+    t.index ["animal_id"], name: "index_animals_treatments_on_animal_id"
+    t.index ["treatment_id"], name: "index_animals_treatments_on_treatment_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -38,6 +45,12 @@ ActiveRecord::Schema.define(version: 2021_03_10_145817) do
     t.string "postcode", limit: 8
     t.integer "user_id"
     t.index ["user_id"], name: "index_owners_on_user_id"
+  end
+
+  create_table "treatments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
