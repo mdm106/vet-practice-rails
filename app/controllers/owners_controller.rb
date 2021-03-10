@@ -16,6 +16,7 @@ class OwnersController < ApplicationController
 
     def create
       @owner = Owner.new(owner_params)
+      @owner.user = current_user
       if @owner.valid?
         @owner.save
         redirect_to owner_path(@owner)
@@ -30,6 +31,7 @@ class OwnersController < ApplicationController
 
     def update
       @owner = Owner.find(params[:id])
+      @owner.user = current_user
       if @owner.valid?
         @owner.update(owner_params)
         redirect_to @owner
