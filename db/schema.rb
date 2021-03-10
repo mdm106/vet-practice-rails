@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_121456) do
+ActiveRecord::Schema.define(version: 2021_03_10_145817) do
+
+  create_table "animals", force: :cascade do |t|
+    t.string "name"
+    t.string "type_of_animal"
+    t.date "dob"
+    t.float "weight"
+    t.float "height"
+    t.integer "biteyness"
+    t.integer "owner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_animals_on_owner_id"
+  end
 
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
