@@ -1,5 +1,7 @@
 class OwnersController < ApplicationController
 
+    before_action :require_logged_in_user, only: [:new, :create, :edit, :update]
+
     def index
       @owners = Owner.paginate(page: params[:page], per_page: 10)
     end
@@ -47,6 +49,13 @@ class OwnersController < ApplicationController
   
     def owner_params
       params.require(:owner).permit(:first_name, :last_name, :telephone, :email, :address_1, :address_2, :town, :postcode)
+    end
+
+    def require_logged_in_user
+      if !logged_in?
+        redirect_to('/login')
+        flash.alert = "You must login to add an owner"
+      end
     end
 
 end
