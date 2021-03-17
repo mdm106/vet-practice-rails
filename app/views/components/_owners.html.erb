@@ -3,7 +3,7 @@
         The owners are:
         <% @owners.each do |owner| %>
         <li>
-            <p><%= owner.full_name %></p>
+            <%= link_to owner.full_name, owner %>
         </li>
         <% end %>
         <%= will_paginate @owners %>
