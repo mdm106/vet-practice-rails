@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_103641) do
+ActiveRecord::Schema.define(version: 2021_03_17_104355) do
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_103641) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.string "role"
+    t.string "role", default: "vet"
   end
 
   add_foreign_key "owners", "users"
