@@ -17,7 +17,7 @@
           <%= link_to "Owners", owners_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Animals</a>
+          <%= link_to "Animals", animals_path, class: "nav-link" %>
         </li>
         <% if can? :create, Owner %>
           <li class="nav-item">
