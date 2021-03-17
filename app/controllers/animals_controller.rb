@@ -1,8 +1,10 @@
 class AnimalsController < ApplicationController
 
+    before_action :find_owner, only: [:new, :edit]
     load_and_authorize_resource
 
     before_action :require_logged_in_user
+    
 
     def index
       @animals = Animal.paginate(page: params[:page], per_page: 10)
@@ -18,7 +20,6 @@ class AnimalsController < ApplicationController
 
     def create
       @animal = Animal.new(animal_params)
-      @animal.user = current_user
       if @animal.valid?
         @animal.save
         redirect_to animal_path(@animal)
@@ -33,7 +34,6 @@ class AnimalsController < ApplicationController
 
     def update
       @animal = Animal.find(params[:id])
-      @animal.user = current_user
       if @animal.valid?
         @animal.update(animal_params)
         redirect_to @animal
@@ -51,5 +51,11 @@ class AnimalsController < ApplicationController
         redirect_to('/login')
         flash.alert = "You must login to add an animal"
       end
+    end
+
+    private
+
+    def find_owner
+      @owner = Owner.find(params[:owner_id].to_i)
     end
 end
