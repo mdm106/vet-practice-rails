@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    load_and_authorize_resource
+
     before_action :require_logged_in_user, only: [:edit, :update]
 
     def index

@@ -10,4 +10,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  Roles = [:admin, :vet]
+
+  def is?(requested_role)
+    self.role == requested_role.to_s
+  end
+
 end
