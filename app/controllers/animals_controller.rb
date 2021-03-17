@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
     end
 
     def create
-      @animal = animal.new(animal_params)
+      @animal = Animal.new(animal_params)
       @animal.user = current_user
       if @animal.valid?
         @animal.save
@@ -28,11 +28,11 @@ class AnimalsController < ApplicationController
     end
 
     def edit
-      @animal = animal.find(params[:id])
+      @animal = Animal.find(params[:id])
     end
 
     def update
-      @animal = animal.find(params[:id])
+      @animal = Animal.find(params[:id])
       @animal.user = current_user
       if @animal.valid?
         @animal.update(animal_params)
