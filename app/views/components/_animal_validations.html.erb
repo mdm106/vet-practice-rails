@@ -1,6 +1,6 @@
 <% if @animal.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@owner.errors.count, "error") %> prohibited this animal from being saved</h2>
+    <h2><%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved</h2>
 
     <% @animal.errors.full_messages.each do |message|%>
       <p><%= message %> </p>
