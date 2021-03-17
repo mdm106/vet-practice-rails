@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 
 gem 'will_paginate', '~> 3.0'
+
+gem 'cancancan', '~> 1.15'
