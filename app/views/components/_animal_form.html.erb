@@ -29,6 +29,11 @@
         <%= form.number_field(:biteyness, in:1..5) %>
     </div>
 
+    <div>
+        <%= form.label :owner_id, "Owner Id:" %>
+        <%= form.number_field(:owner_id, :value => @owner.id, readonly: true) %>
+    </div>
+
 <%= form.submit "Submit" %>
 
 <% end %>
