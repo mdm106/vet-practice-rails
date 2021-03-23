@@ -1,0 +1,13 @@
+<% if @treatments.count > 0 %>
+    <ul>
+        The treatments we offer are:
+        <% @treatments.each do |treatment| %>
+        <li>
+            <%= treatment.name %>
+        </li>
+        <% end %>
+        <%= will_paginate @treatments %>
+    </ul>
+<% else %>
+    <p>No treatments found</p>
+<% end %>

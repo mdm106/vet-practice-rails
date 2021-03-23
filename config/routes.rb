@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get '/users/confirmation' => 'users#confirmation'
 
   resources :animals
+
+  resources :treatments
   
 end
