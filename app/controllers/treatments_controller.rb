@@ -13,7 +13,7 @@ class TreatmentsController < ApplicationController
     end
 
     def new
-        @animal = Treatment.new
+        @treatment = Treatment.new
     end
 
     def create
