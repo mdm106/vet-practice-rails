@@ -34,7 +34,7 @@
         <% if @owner %>
             <%= form.number_field(:owner_id, :value => @owner.id, readonly: true) %>
         <% else %>
-            <%= form.collection_select(:owner_id, Owner.all, :id, :id) %>
+            <%= form.collection_select(:owner_id, Owner.all, :id, :full_name) %>
         <% end %>
     </div>
 
