@@ -31,13 +31,10 @@
 
     <div>
         <%= form.label :owner_id, "Owner Id:" %>
-        <% if @owner %>
-            <%= form.number_field(:owner_id, :value => @owner.id, readonly: true) %>
-        <% else %>
-            <%= form.collection_select(:owner_id, Owner.all, :id, :id) %>
-        <% end %>
+        <%= form.number_field(:owner_id, readonly: true) %>
     </div>
 
+    <%= form.label "Add treatments" %>
     <div>
         <%= form.collection_check_boxes :treatment_ids, Treatment.all, :id, :name %>
     </div>

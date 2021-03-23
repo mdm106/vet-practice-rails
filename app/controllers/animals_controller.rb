@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
 
-    before_action :find_owner, only: [:new, :edit]
+    before_action :find_owner, only: [:new]
     load_and_authorize_resource
 
     before_action :require_logged_in_user
@@ -44,7 +44,7 @@ class AnimalsController < ApplicationController
     end
   
     def animal_params
-      params.require(:animal).permit(:name, :type_of_animal, :dob, :weight, :height, :biteyness, :owner_id)
+      params.require(:animal).permit(:name, :type_of_animal, :dob, :weight, :height, :biteyness, :owner_id, treatment_ids:[])
     end
 
     def require_logged_in_user
@@ -57,6 +57,7 @@ class AnimalsController < ApplicationController
     private
 
     def find_owner
-      @owner = Owner.find(params[:owner_id].to_i)
+      @owner = Owner.find(params[:owner_id].to_i) rescue nil
     end
+
 end

@@ -12,3 +12,11 @@
         <p>This animal has not received any treatments</p>
     <% end %>
 </div>
+
+<%= form_for @animal do |f| %>
+  <%= f.label "Add treatments" %>
+  <div>
+    <%= f.collection_check_boxes :treatment_ids, Treatment.all, :id, :name %>
+  </div>
+  <%= f.submit %>
+<% end %>
