@@ -1,0 +1,14 @@
+<div>
+    <% if @treatments.count > 0 %>
+        <ul>
+            This animal has received these treatments:
+            <% @treatments.each do |treatment| %>
+            <li>
+                <%= treatment.name %>
+            </li>
+            <% end %>
+        </ul>
+    <% else %>
+        <p>This animal has not received any treatments</p>
+    <% end %>
+</div>

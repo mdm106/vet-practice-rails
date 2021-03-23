@@ -12,6 +12,7 @@ class AnimalsController < ApplicationController
 
     def show
         @animal = Animal.find(params[:id]) 
+        @treatments = @animal.treatments
     end
 
     def new
