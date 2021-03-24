@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_03_17_104355) do
 
   create_table "animals", force: :cascade do |t|
@@ -63,4 +64,5 @@ ActiveRecord::Schema.define(version: 2021_03_17_104355) do
   end
 
   add_foreign_key "owners", "users"
+
 end

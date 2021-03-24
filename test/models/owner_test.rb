@@ -5,6 +5,7 @@ class OwnerTest < ActiveSupport::TestCase
   #   assert true
   # end
 
+
   test "test have we bananas method" do
     owner = Owner.new
     answer = owner.haveWeBananas(0)
@@ -19,5 +20,6 @@ class OwnerTest < ActiveSupport::TestCase
     assert(o.email_exists("me@me.com"))
     assert_not(o.email_exists("won't"))
   end
+
 
 end
