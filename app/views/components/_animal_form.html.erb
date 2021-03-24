@@ -1,0 +1,49 @@
+<%= form_for @animal do |form| %>
+    <div>
+        <%= form.label :name, "Name:" %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :type_of_animal, "Type of animal:" %>
+        <%= form.text_field :type_of_animal %>
+    </div>
+
+    <div>
+        <%= form.label :dob, "Date of birth:" %>
+        <%= form.date_field :dob %>
+    </div>
+
+    <div>
+        <%= form.label :weight, "Weight (in kg):" %>
+        <%= form.number_field(:weight, step:0.1) %>
+    </div>
+
+    <div>
+        <%= form.label :height, "Height (in cm):" %>
+        <%= form.number_field(:height, step:0.1) %>
+    </div>
+
+    <div>
+        <%= form.label :biteyness, "On a scale of 1-5 how bitey are they?:" %>
+        <%= form.number_field(:biteyness, in:1..5) %>
+    </div>
+
+    <div>
+        <%= form.label :owner_id, "Owner Id:" %>
+        <% if @owner %>
+            <%= form.number_field(:owner_id, :value => @owner.id, readonly: true) %>
+        <% else %>
+            <%= form.collection_select(:owner_id, Owner.all, :id, :full_name) %>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.collection_check_boxes :treatment_ids, Treatment.all, :id, :name %>
+    </div>
+
+<%= form.submit "Submit" %>
+
+<% end %>
+
+</div>

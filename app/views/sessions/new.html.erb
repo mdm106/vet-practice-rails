@@ -1,0 +1,15 @@
+<h1>Login</h1>
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+     </div>
+  <% end %>
+   <%= form_with(model: @session, local: true) do |form| %>
+   <%= form.label :email %> 
+   <%= form.text_field :email %> 
+   <%= form.label :password %>
+   <%= form.password_field :password %>
+   <%= submit_tag "Login"%>
+<%end%>
+
+<h3>Not registered? Sign up <%= link_to 'here', '/users/new' %></h3>

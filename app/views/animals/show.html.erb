@@ -1,0 +1,9 @@
+<% content_for :title, @animal.name %>
+
+<div class="container">
+    <h1>Animal Profile</h1>
+    <p><%= @animal.name %></p>
+    <p><%= @animal.type_of_animal %></p>
+    <p>Owned by: <%= @animal.owner.full_name %>
+    <%= render 'components/treatments_for_animal' %>
+</div>

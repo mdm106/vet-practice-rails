@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/">MDM Vets</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto w-100">
+      <li class="nav-item">
+        <%= link_to "Home", "/", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About us</a>
+      </li>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to "Owners", owners_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Animals", animals_path, class: "nav-link" %>
+        </li>
+        <% if can? :create, Owner %>
+          <li class="nav-item">
+            <%= link_to "Add owner", new_owner_path(@owner), class: "nav-link" %>
+          </li>
+        <% end %>
+        <li>
+          <%= form_tag(search_page_path, :method => "get",   
+      class: 'navbar-form navbar-left') do %>  
+          <div class="input-group">  
+            <%= search_field_tag :search, params[:search], placeholder: "e.g. owner name", class: "form-control" %>  
+            <div class="input-group-btn">  
+              <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil %>  
+            </div>  
+          </div>  
+        <% end %>
+        </li>
+      <% end %>
+      <li>
+        <% if logged_in? %>
+          <%= link_to "Log out", logout_path, method: :delete %>
+          <%= link_to "Update your details", edit_user_path(current_user.id)  %>
+        <% else %>
+          <%= link_to "Log in", login_path %>
+        <% end %>
+      </li>
+    </ul> 
+  </div>
+</nav>

@@ -1,0 +1,13 @@
+<% if @animals.count > 0 %>
+    <ul>
+        The animals are:
+        <% @animals.each do |animal| %>
+        <li>
+            <p><%= animal.name %></p>
+        </li>
+        <% end %>
+        <%= will_paginate @animals %>
+    </ul>
+<% else %>
+    <p>No animals found</p>
+<% end %>

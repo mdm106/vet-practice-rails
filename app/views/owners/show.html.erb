@@ -1,0 +1,9 @@
+<% content_for :title, @owner.full_name %>
+
+<div class="container">
+    <h1>Owner Profile</h1>
+    <p><%= @owner.full_name %></p>
+    <p><%= @owner.full_address %></p>
+    <p>Added by: <%= @owner.user ? @owner.user.name : "Admin" %></p>
+    <%= link_to "Add animal", new_animal_path(:owner_id => @owner.id) %>
+</div>

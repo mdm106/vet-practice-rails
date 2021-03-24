@@ -1,0 +1,13 @@
+<% if @owners.count > 0 %>
+    <ul>
+        The owners are:
+        <% @owners.each do |owner| %>
+        <li>
+            <%= link_to owner.full_name, owner %>
+        </li>
+        <% end %>
+        <%= will_paginate @owners %>
+    </ul>
+<% else %>
+    <p>No owners found</p>
+<% end %>
